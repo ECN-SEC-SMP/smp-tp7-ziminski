@@ -45,4 +45,7 @@ float Rectangle::surface(){
 }
 
 
-
+ostream& operator<<(ostream& s, const Rectangle& r){
+    s << "(Rectangle, " << r.centre << ", " << r.largeur << ", " << r.longueur << ")";
+    return s;
+}

@@ -27,6 +27,33 @@ Compilateur Machine : G++ (13.3.0)
 
 class Carree : public Rectangle {    
     public:
+        /*
+        --------------------------------------------------------------------------
+        * *   Constructeur
+        -------------------------------------------------------------------------- 
+        */
+
+        /**
+         * @brief Constructeur d'un carrée de centre l'origine et de coté 0
+         * 
+         */
         Carree();
+
+        /**
+         * @brief Constructeur d'un carrée de centre centre et de coté cote
+         * 
+         * @param centre 
+         * @param cote 
+         */
         Carree(Point centre, float cote);
+
+
+        /*
+        --------------------------------------------------------------------------
+        * *   Surchage d'opérateurs
+        -------------------------------------------------------------------------- 
+        */
+        friend ostream& operator<<(ostream& s, const Carree& c);
 };
+
+ostream& operator<<(ostream& s, const Carree& c);

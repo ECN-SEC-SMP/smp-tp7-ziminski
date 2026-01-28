@@ -27,7 +27,6 @@ Compilateur Machine : G++ (13.3.0)
 class Forme {
     protected:
         Point centre;
-    private: 
 
     public:
 

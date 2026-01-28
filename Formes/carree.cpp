@@ -35,3 +35,8 @@ Carree::Carree(Point centre, float cote){
     this->longueur = cote;
     this->largeur  = cote;
 }
+
+ostream& operator<<(ostream& s, const Carree& c){
+    s << "(Carree, " << c.centre << ", " << c.largeur << ")";
+    return s;
+}

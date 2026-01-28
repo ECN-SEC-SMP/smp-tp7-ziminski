@@ -73,4 +73,16 @@ class Cercle : public Forme {
          * @return float 
          */
         float surface();
+
+
+        /*
+        --------------------------------------------------------------------------
+        * *   Surchage d'opérateurs
+        -------------------------------------------------------------------------- 
+        */
+
+
+        friend ostream& operator<<(ostream& s, const Cercle& c);
 };
+
+ostream& operator<<(ostream& s, const Cercle& c);

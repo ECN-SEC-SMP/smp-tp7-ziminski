@@ -52,3 +52,8 @@ float Cercle::perimetre(){
 float Cercle::surface(){
     return M_PIf * this->rayon * this->rayon;
 }
+
+ostream& operator<<(ostream& s, const Cercle& c){
+    s << "(Cercle, " << c.centre << ", " << c.rayon <<  ")";
+    return s;
+}

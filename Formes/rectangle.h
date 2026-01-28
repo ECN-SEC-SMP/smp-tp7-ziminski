@@ -69,4 +69,9 @@ class Rectangle : public Forme {
          * @return float 
          */
         float surface();
+
+
+        friend ostream& operator<<(ostream& s, const Rectangle& r);
 };
+
+ostream& operator<<(ostream& s, const Rectangle& r);
