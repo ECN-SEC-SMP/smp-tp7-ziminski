@@ -46,6 +46,7 @@ void Point::setY(float y = 0){
     this->y = y;
 }
 
+
 ostream& operator<<(ostream& s, Point const &p){
     s << "(" << p.getX() << "; " << p.getY() << ")";
     return s;
