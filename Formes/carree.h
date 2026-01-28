@@ -5,7 +5,7 @@ Autheurs            : Aymeric ZIMINSKI / Zaryus, Jean-Marc KERVIL
 Email               : aymeric.ziminski@gmail.com
 Date de création    : 28/01/2026
 Version             : 1.0
-Description         : Fichier d'entête pour cercle.cpp
+Description         : Fichier d'entête pour carree.cpp
 Compilateur Machine : G++ (13.3.0)
 =============================================================================
 */
@@ -16,7 +16,8 @@ Compilateur Machine : G++ (13.3.0)
 -------------------------------------------------------------------------- 
 */
 
-#include "Forme.h"
+#include "rectangle.h"
+
 
 /*
 --------------------------------------------------------------------------
@@ -24,18 +25,8 @@ Compilateur Machine : G++ (13.3.0)
 -------------------------------------------------------------------------- 
 */
 
-class Cercle : public Forme {
-    private:
-        float rayon;
-    
+class Carree : public Rectangle {    
     public:
-        Cercle();
-        Cercle(Point centre);
-        Cercle(float rayon);
-        Cercle(Point centre, float rayon);
-
-
-
-        float perimetre();
-        float surface();
+        Carree();
+        Carree(Point centre, float cote);
 };
