@@ -1,6 +1,6 @@
 /*
 =============================================================================
-Nom du fichier      : Forme.h
+Nom du fichier      : carree.h
 Autheurs            : Aymeric ZIMINSKI / Zaryus, Jean-Marc KERVIL
 Email               : aymeric.ziminski@gmail.com
 Date de création    : 28/01/2026

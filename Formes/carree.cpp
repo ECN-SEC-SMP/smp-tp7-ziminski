@@ -34,5 +34,4 @@ Carree::Carree(Point centre, float cote){
     this->centre = centre;
     this->longueur = cote;
     this->largeur  = cote;
-    
 }

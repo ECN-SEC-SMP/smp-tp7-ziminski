@@ -30,9 +30,43 @@ class Rectangle : public Forme {
         float largeur; 
     
     public:
-        Rectangle();
-        Rectangle(Point centre, float longueur, float largeur);
+        /*
+        --------------------------------------------------------------------------
+        * *   Constructeurs
+        -------------------------------------------------------------------------- 
+        */
 
-        float permietre();
+        /**
+         * @brief Construit un rectangle au point (0, 0) et de largeur et longueur 0. 
+         * 
+         */
+        Rectangle();
+
+        /**
+         * @brief Construit un rectangle au point centre, de longueur longueur et largeur largeur.
+         * 
+         * @param centre 
+         * @param longueur 
+         * @param largeur 
+         */
+        Rectangle(Point centre, float longueur, float largeur);
+        /*
+        --------------------------------------------------------------------------
+        * *   Méthodes
+        -------------------------------------------------------------------------- 
+        */
+
+        /**
+         * @brief Récupération du périmètre de la forme
+         * 
+         * @return float 
+         */
+        float perimetre();
+
+        /**
+         * @brief Récupération de la surface de la forme
+         * 
+         * @return float 
+         */
         float surface();
 };

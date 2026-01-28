@@ -36,7 +36,7 @@ Rectangle::Rectangle(Point centre, float longueur, float largeur){
     this->largeur = largeur;
 }
 
-float Rectangle::permietre(){
+float Rectangle::perimetre(){
     return 2*(this->longueur + this->largeur);
 }
 
