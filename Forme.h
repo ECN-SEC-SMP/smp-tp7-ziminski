@@ -26,8 +26,10 @@ Compilateur Machine : G++ (13.3.0)
 
 class Forme {
     private: 
-        Point centre;
     public:
+        Point centre;
+
+
         /*
         --------------------------------------------------------------------------
         * *   Constructeurs
