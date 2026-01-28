@@ -1,6 +1,7 @@
 #include "Point.h"
 
 
+
 Point::Point(){
     this->x = 0; 
     this->y = 0;
@@ -29,11 +30,11 @@ void Point::translater(float x, float y){
     this->y += y;
 }
 
-float Point::getX(){
+float Point::getX() const{
     return this->x;
 }
 
-float Point::getY(){
+float Point::getY() const{
     return this->y;
 }
 
@@ -43,4 +44,15 @@ void Point::setX(float x = 0){
 
 void Point::setY(float y = 0){
     this->y = y;
+}
+
+ostream& operator<<(ostream& s, Point const &p){
+    s << "(" << p.getX() << "; " << p.getY() << ")";
+    return s;
+}
+
+Point& operator+=(Point& p1, Point const&p2){
+    p1.translater(p2);
+
+    return p1;
 }

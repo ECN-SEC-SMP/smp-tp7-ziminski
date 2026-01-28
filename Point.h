@@ -1,7 +1,6 @@
 #include <iostream>
 
 using namespace std;
-
 class Point
 {
 private:
@@ -21,10 +20,13 @@ public:
     void translater(Point c);
     void translater(float x, float y);
 
-    float getX();
-    float getY();
+    float getX() const;
+    float getY() const;
 
-    void setX(float x = 0);
-    void setY(float y = 0);
+    void setX(float x);
+    void setY(float y);
+
 };
 
+ostream& operator<<(ostream& s, Point const& p);
+Point& operator+=(Point& p1, Point const& p2);
