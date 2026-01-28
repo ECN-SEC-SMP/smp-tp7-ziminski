@@ -46,14 +46,12 @@ void Point::setY(float y = 0){
     this->y = y;
 }
 
-
 ostream& operator<<(ostream& s, Point const &p){
     s << "(" << p.getX() << "; " << p.getY() << ")";
     return s;
 }
 
-Point& operator+=(Point& p1, Point const&p2){
-    p1.translater(p2);
+void Point::operator+=(const Point& point){
+    this->translater(point);
 
-    return p1;
 }

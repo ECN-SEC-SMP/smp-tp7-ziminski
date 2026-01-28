@@ -141,6 +141,19 @@ public:
      */
     void setY(float y);
 
+    /**
+     * @brief Permet d'ajouter un point à un autre
+     * 
+     * @param point
+     * @return Point& 
+     * 
+     * Complexité : 
+     *  - Temps     : O(1)
+     *  - Mémoire   : O(1)
+     */
+    void operator+=(const Point& point);
+
+    friend ostream& operator<<(ostream& s, const Point& p);
 };
 
 /**
@@ -154,17 +167,5 @@ public:
  *  - Temps     : O(1)
  *  - Mémoire   : O(1)
  */
-ostream& operator<<(ostream& s, Point const& p);
+ostream& operator<<(ostream& s, const Point& p);
 
-/**
- * @brief Permet d'ajouter un point à un autre
- * 
- * @param p1 
- * @param p2 
- * @return Point& 
- * 
- * Complexité : 
- *  - Temps     : O(1)
- *  - Mémoire   : O(1)
- */
-Point& operator+=(Point& p1, Point const& p2);
