@@ -1,0 +1,6 @@
+# Fichiers compilés
+*.o 
+
+
+# Fichiers exécutables
+main
