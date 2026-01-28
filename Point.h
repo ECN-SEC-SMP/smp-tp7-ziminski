@@ -1,4 +1,6 @@
+#include <iostream>
 
+using namespace std;
 
 class Point
 {
@@ -19,20 +21,10 @@ public:
     void translater(Point c);
     void translater(float x, float y);
 
-    float getX(){
-        return this->x;
-    }
+    float getX();
+    float getY();
 
-    float getY(){
-        return this->y;
-    }
-
-    void setX(float x = 0){
-        this->x = x; 
-    }
-
-    void setY(float y = 0){
-        this->y = y;
-    }
+    void setX(float x = 0);
+    void setY(float y = 0);
 };
 
