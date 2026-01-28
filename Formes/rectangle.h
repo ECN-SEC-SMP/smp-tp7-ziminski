@@ -15,8 +15,9 @@ Compilateur Machine : G++ (13.3.0)
 * *   Importation des modules
 -------------------------------------------------------------------------- 
 */
-
-#include "Forme.h"
+#ifndef H_RECTANGLE
+#define H_RECTANGLE
+#include "../Forme.h"
 
 /*
 --------------------------------------------------------------------------
@@ -75,3 +76,4 @@ class Rectangle : public Forme {
 };
 
 ostream& operator<<(ostream& s, const Rectangle& r);
+#endif

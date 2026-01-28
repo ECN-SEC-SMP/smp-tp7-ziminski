@@ -15,8 +15,9 @@ Compilateur Machine : G++ (13.3.0)
 * *   Importation des modules
 -------------------------------------------------------------------------- 
 */
-
-#include "Forme.h"
+#ifndef H_CERCLE
+#define H_CERCLE
+#include "../Forme.h"
 
 /*
 --------------------------------------------------------------------------
@@ -86,3 +87,4 @@ class Cercle : public Forme {
 };
 
 ostream& operator<<(ostream& s, const Cercle& c);
+#endif

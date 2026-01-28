@@ -15,7 +15,8 @@ Compilateur Machine : G++ (13.3.0)
 * *   Importation des modules
 -------------------------------------------------------------------------- 
 */
-
+#ifndef H_CARREE
+#define H_CARREE
 #include "rectangle.h"
 
 
@@ -57,3 +58,4 @@ class Carree : public Rectangle {
 };
 
 ostream& operator<<(ostream& s, const Carree& c);
+#endif

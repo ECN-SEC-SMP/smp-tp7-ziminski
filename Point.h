@@ -15,6 +15,9 @@ Compilateur Machine : G++ (13.3.0)
 * *   Importation des modules
 -------------------------------------------------------------------------- 
 */
+#ifndef H_POINT
+#define H_POINT
+
 #include <iostream>
 
 using namespace std;
@@ -169,3 +172,4 @@ public:
  */
 ostream& operator<<(ostream& s, const Point& p);
 
+#endif

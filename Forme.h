@@ -15,7 +15,8 @@ Compilateur Machine : G++ (13.3.0)
 * *   Importation des modules
 -------------------------------------------------------------------------- 
 */
-
+#ifndef H_FORME
+#define H_FORME
 #include "Point.h"
 
 /*
@@ -86,5 +87,4 @@ class Forme {
 
 ostream& operator<<(ostream& s, const Forme& f);
 
-
-
+#endif
