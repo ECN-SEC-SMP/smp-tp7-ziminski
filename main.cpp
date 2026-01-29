@@ -8,6 +8,55 @@ using namespace std;
 
 int main(){
     cout << "========================================" << endl;
+    cout << "        TEST DE LA CLASSE POINT         " << endl;
+    cout << "========================================" << endl << endl;
+
+    // Test POINT - Constructeurs
+    cout << "--- TEST POINT - CONSTRUCTEURS ---" << endl;
+    Point p1;
+    cout << "Point par défaut: " << p1 << endl;
+
+    Point p2(3.5f, 7.2f);
+    cout << "Point(3.5, 7.2): " << p2 << endl;
+
+    Point p3(p2);
+    cout << "Point copié à partir de p2: " << p3 << endl;
+    cout << endl;
+
+    // Test POINT - Getters et Setters
+    cout << "--- TEST POINT - GETTERS/SETTERS ---" << endl;
+    cout << "p2.getX() = " << p2.getX() << endl;
+    cout << "p2.getY() = " << p2.getY() << endl;
+
+    p1.setX(10.0f);
+    p1.setY(20.0f);
+    cout << "Après setX(10.0) et setY(20.0), p1 = " << p1 << endl;
+    cout << endl;
+
+    // Test POINT - Translater
+    cout << "--- TEST POINT - TRANSLATER ---" << endl;
+    Point p4(5.0f, 5.0f);
+    cout << "p4 avant translation: " << p4 << endl;
+    p4.translater(2.0f, 3.0f);
+    cout << "Après translater(2.0, 3.0): " << p4 << endl;
+
+    Point p5(1.0f, 1.0f);
+    Point vecteur(4.0f, 2.0f);
+    cout << "p5 avant translation: " << p5 << endl;
+    p5.translater(vecteur);
+    cout << "Après translater par Point(4.0, 2.0): " << p5 << endl;
+    cout << endl;
+
+    // Test POINT - Opérateur +=
+    cout << "--- TEST POINT - OPÉRATEUR += ---" << endl;
+    Point p6(1.0f, 1.0f);
+    Point p7(2.0f, 3.0f);
+    cout << "p6 = " << p6 << ", p7 = " << p7 << endl;
+    p6 += p7;
+    cout << "Après p6 += p7: p6 = " << p6 << endl;
+    cout << endl;
+
+    cout << "========================================" << endl;
     cout << "     TEST DES DIFFÉRENTES FORMES        " << endl;
     cout << "========================================" << endl << endl;
 

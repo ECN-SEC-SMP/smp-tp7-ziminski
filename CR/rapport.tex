@@ -1,0 +1,234 @@
+% !TEX encoding = UTF-8 Unicode
+% -*- coding: UTF-8; -*-
+% vim: set fenc=utf-8
+\documentclass[a4paper,12pt,french]{article}
+
+\usepackage{centrale}
+\usepackage{minted}
+\usepackage{float}
+
+\hypersetup{
+  pdftitle={Compte-Rendu TP7},
+  pdfauthor={Aymeric ZIMINSKI / Zaryus},
+  pdfsubject={Compte-rendu TP7},
+  pdfproducer={Conversion PDF},
+  pdfkeywords={Quelques mots-clés} %
+}
+
+\DeclareGraphicsRule{.ai}{pdf}{.ai}{} % Pour insérer des documents .ai
+\graphicspath{{./img/} {./eps/} {./fig/}} % Pour ne pas avoir à ajouter eps/ton-image.jpg
+
+% ------------- Packages spéciaux, nécessaires pour ce rapport, à insérer ici ------------- 
+
+
+\begin{document}
+
+% --------------------------------------------------------------
+%                       Page de garde
+% --------------------------------------------------------------
+
+\begin{titlepage}
+  \begin{center}
+
+    \includegraphics[width=0.8\textwidth]{LogoECN.jpg}\\[1cm]
+
+    {\large Systèmes Embarqués Communicants}\\[0.5cm]
+
+    {\large Spécification et modélisation de programme}\\[0.5cm]
+
+    % Titre
+    \rule{\linewidth}{0.5mm} \\[0.4cm]
+    { \huge \bfseries TP7 - Classes\\[0.4cm] }
+    \rule{\linewidth}{0.5mm} \\[1.5cm]
+
+    % Auteur(es) et encadrant(es)
+    \noindent
+    \begin{minipage}{0.4\textwidth}
+      \begin{flushleft} \large
+        \emph{Auteur :}\\
+        M. Jean-Marc \textsc{KERVIL}
+        M. Aymeric \textsc{ZIMINSKI}
+      \end{flushleft}
+    \end{minipage}%
+    \begin{minipage}{0.4\textwidth}
+%      \begin{flushright} \large
+%        \emph{Encadrants :} \\
+%        M.~Prénom \textsc{Nom}\\
+%        M.~Prénom \textsc{Nom}
+%      \end{flushright}
+    \end{minipage}
+
+    \vfill
+
+    % Date en fin de page
+    {\large Version du\\ \today}
+
+  \end{center}
+\end{titlepage}
+
+% --------------------------------------------------------------
+%                    Table des matières 
+% --------------------------------------------------------------
+
+\thispagestyle{empty}
+\tableofcontents
+\pagebreak
+
+% --------------------------------------------------------------
+%                         Début du corps
+% --------------------------------------------------------------
+
+\section{Introduction}
+
+Nous souhaitons dans ce TP expérimenter l'implémentations des classes en C++. Pour cela, nous crérons une classe Forme qui est parente de la classe Cercle et Rectangle. Nous implémenterons des fonctions de calcul d'aire et de périmètre, ainsi que des fonctions d'affichage.
+
+
+% --------------------------------------------------------------
+%                         Partie 1
+% --------------------------------------------------------------
+
+\pagebreak
+\section{Création d'une classe point}
+
+Nous choississons de créer une classe \texttt{Point} qui contient deux attributs \texttt{x} et \texttt{y} de type \texttt{float}. 
+
+Nous souhaitons implémenter un constructeur, une méthode translater,...
+
+
+\subsection{Constructeurs}
+
+Pour les constructeurs, nous souhaitons avoir différents moyens de créer un point :
+\begin{itemize}
+  \item Sans paramètres : le point est à l'origine (0,0)
+  \item Avec deux paramètres : le point est créé avec les coordonnées données
+  \item A partir d'un autre point : recopie des coordonnées
+\end{itemize}
+
+Pour l'implémentation, nous récupérons les paramètres et nous les assignons aux attributs \texttt{x} et \texttt{y}.
+
+\subsection{Getter et Setter}
+
+Nous implémentons des getters et setters pour les attributs \texttt{x} et \texttt{y}: getX, getY, setX, setY.
+
+Ces méthodes permettent de récupérer et modifier un attribut privé de la classe.
+
+\subsection{Méthode translater}
+
+La méthode \texttt{translater} permet de déplacer un point en ajoutant des valeurs aux coordonnées \texttt{x} et \texttt{y}.
+
+Nous définitions deux méthodes \texttt{translater} : une qui prend deux paramètres (x, y) et une qui prend un autre point. 
+
+\subsection{Surchage des opérateurs}
+
+Pour la surchage des opérateurs, nous implémentons le \texttt{<<} pour afficher un point dans le format (x,y). Nous le définition comme \texttt{friend} de la classe pour pouvoir accéder aux attributs privés.
+Nous surchargons aussi l'opérateur \texttt{+=} pour additionner deux points (addition des coordonnées). 
+
+\subsection{Tests}
+
+Je demande à Copilote de m'aider à écrire des tests pour la classe Point. Je lui donnes les instructions précises et il me génère le code. 
+
+Le résultat des tests est le suivant : 
+
+\begin{minted}{console}
+  ========================================
+          TEST DE LA CLASSE POINT         
+  ========================================
+
+  --- TEST POINT - CONSTRUCTEURS ---
+  Point par défaut: (0; 0)
+  Point(3.5, 7.2): (3.5; 7.2)
+  Point copié à partir de p2: (3.5; 7.2)
+
+  --- TEST POINT - GETTERS/SETTERS ---
+  p2.getX() = 3.5
+  p2.getY() = 7.2
+  Après setX(10.0) et setY(20.0), p1 = (10; 20)
+
+  --- TEST POINT - TRANSLATER ---
+  p4 avant translation: (5; 5)
+  Après translater(2.0, 3.0): (7; 8)
+  p5 avant translation: (1; 1)
+  Après translater par Point(4.0, 2.0): (5; 3)
+
+  --- TEST POINT - OPÉRATEUR += ---
+  p6 = (1; 1), p7 = (2; 3)
+  Après p6 += p7: p6 = (3; 4)
+\end{minted}
+
+\section{Classe Forme}
+
+Nous créons maintenant la classe Forme, qui est une classe abstraite. Elle contient deux méthodes virtuelles pures : aire() et perimetre().
+
+Nous créons comme varibale protégée un Point \texttt{centre} permettant ainsi au sous-classes d'y accéder, et pouvoir définir le centre de leur forme.
+
+\section{Les formes géométriques}
+
+Nous créons deux classes filles de Forme : Cercle et Rectangle. Elles implémentent les méthodes aire() et perimetre().
+
+Nous utilisons les formules mathématiques pour calculer l'aire et le périmètre de chaque forme.
+
+Nous créons une classe fille de Rectangle : Carré. Elle hérite des attributs et méthodes de Rectangle. En effet, un carré est un rectangle avec des côtés égaux.
+
+\section{Tests des classes Forme, Cercle, Rectangle et Carré}
+
+Nous écrivons des tests pour vérifier le bon fonctionnement des classes Forme, Cercle, Rectangle et Carré.
+
+\begin{minted}[console]
+  ========================================
+      TEST DES DIFFÉRENTES FORMES        
+  ========================================
+
+  --- TEST CERCLE ---
+  Cercle par défaut (rayon=0, centre=(0,0))
+  (Cercle, (0; 0), 0)
+  Cercle avec centre=(5,5), rayon=0
+  (Cercle, (5; 5), 0)
+  Cercle avec centre=(10,10), rayon=7.5
+  (Cercle, (10; 10), 7.5)
+  Surface: 176.715
+  Périmètre: 47.1239
+
+  --- TEST RECTANGLE ---
+  Rectangle par défaut (0,0,0,0)
+  (Rectangle, (0; 0), 0, 0)
+  Rectangle centre=(0,0), longueur=10, largeur=5
+  (Rectangle, (0; 0), 5, 10)
+  Surface: 50
+  Périmètre: 30
+  Rectangle centre=(15,15), longueur=8, largeur=6
+  (Rectangle, (15; 15), 6, 8)
+  Surface: 48
+  Périmètre: 28
+
+  --- TEST CARRÉ ---
+  Carré par défaut (0,0,0)
+  (Carree, (0; 0), 0)
+  Carré centre=(0,0), côté=5
+  (Carree, (0; 0), 5)
+  Surface: 25
+  Périmètre: 20
+  Carré centre=(20,20), côté=8
+  (Carree, (20; 20), 8)
+  Surface: 64
+  Périmètre: 32
+
+  ========================================
+            COMPARAISONS D'AIRES          
+  ========================================
+  Cercle (rayon=7.5): 176.715
+  Rectangle (10x5): 50
+  Carré (côté=8): 64
+
+\end{minted}
+
+Nous obtenons les résultats attendus, confirmant le bon fonctionnement des classes.
+
+
+\section{Liste de forme}
+
+Je n'ai pas réussi à implémenter cette partie. J'ai cependant créer la structure dans le .h. Nous savons que chaque forme a comme classe mère \texttt{Forme}, ainsi j'ai crée un vecteur de Forme. 
+
+
+
+
+\end{document}
