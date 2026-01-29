@@ -1,0 +1,16 @@
+# Fichiers compilés
+*.o 
+
+
+# Fichiers exécutables
+main
+
+# Fichiers latex
+*.aux
+*.log
+*.out
+*.gz
+*.toc
+*.sty
+/CR/_minted-rapport/**
+/CR/eps/**
